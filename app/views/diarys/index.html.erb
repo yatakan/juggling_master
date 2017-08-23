@@ -1,0 +1,13 @@
+<div class="contents">
+  <h2>最近の更新</h2>
+    <ul>
+      <% @diarys.each do |diary| %>
+      <li style="list-style:none">書いた人：<a href="/users/<%=diary.user.id%>"><%= diary.user.nickname %></a></li>
+      <li style="list-style:none">タイトル：<%= diary.title %></</li>
+      <li style="list-style:none">本文：<%= simple_format(diary.text) %></li>
+      <li><%= link_to '詳しく見る',"diarys/#{diary.user_id}" %></li>
+      <hr>
+      <% end %>
+      <%= paginate(@diarys) %>
+    </ul>
+</div>

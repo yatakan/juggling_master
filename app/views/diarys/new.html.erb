@@ -1,0 +1,19 @@
+<div class="contents">
+  <%= form_for @diary, :url =>{:controller => :diarys,:action => :create} do|f| %>
+    <div class="title">
+    <%= f.label :title %>
+    <%= f.text_field :title,class:"text-field",placeholder:'タイトルを入力してください' %>
+    </div>
+
+    <div class="text">
+    <%= f.label :text %>
+    <%= f.text_area :text,class:"text-area",placeholder:'今日の練習はどうでしたか？' %>
+    </div>
+
+    <div>
+      <%= button_tag type: "submit",class:"submit" do%>
+      <p>投稿する</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

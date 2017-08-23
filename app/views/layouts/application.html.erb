@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Juggling</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <div id="title">
+    <a href="/diarys" method="GET"><h1>ジャグリングマスター</h1></a>
+  </div>
+  <div>
+  <% if user_signed_in? %>
+    <div>
+      <p><%= current_user.nickname %>さん おかえりなさい！</p>
+    <div>
+      <a href="/users/<%= current_user.id %>" method="GET">
+      <p>マイページ</p>
+      </a>
+    </div>
+    <div>
+      <p><%= link_to 'ログアウト',destroy_user_session_path,method: :delete %></p>
+    </div>
+  <% else %>
+  <div>
+    <p> ゲストさん ようこそ！</p>
+  <div>
+    <a href="/users/sign_up" method="GET"><p>新規登録</p></a>
+  </div>
+  <div>
+    <a href="/users/sign_in" method="GET"><p>サインイン</p></a>
+  </div>
+  <% end %>
+  <div>
+  <a href="/diarys/new" method="NEW"><p>新しい日記を書く</p></a>
+  </div>
+</header>
+
+<%= yield %>
+
+<footer>
+  <div class="copy-right">
+    <p>&copy;JugglingMaster</p>
+  </div>
+</footer>
+</body>
+</html>

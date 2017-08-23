@@ -1,0 +1,16 @@
+<div class="contents">
+  <h2><%= @nickname %>さんのマイページ</h2>
+    <div class="image">
+     <%= image_tag current_user.avatar.url(:thumb) %>
+    </div>
+    <div class="contents">
+    <h2>最近の更新</h2>
+      <ul>
+        <% @diarys.each do |diary| %>
+        <li style="list-style:none">タイトル：<%= diary.title %></</li>
+        <li style="list-style:none">本文<%= simple_format(diary.text) %></li>
+        <hr>
+        <% end %>
+      </ul>
+</div>
+</div>

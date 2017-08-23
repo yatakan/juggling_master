@@ -1,0 +1,14 @@
+<div class="contents">
+  <%= form_for @comment do|f| %>
+    <div class="text">
+    <%= f.label :comment %>
+    <%= f.text_area :comment,class:"text-area",placeholder:'コメントをどうぞ' %>
+    </div>
+
+    <div>
+      <%= button_tag type: "submit",class:"submit" do%>
+      <p>投稿する</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
